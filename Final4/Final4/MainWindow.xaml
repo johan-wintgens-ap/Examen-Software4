@@ -31,6 +31,10 @@
                     <ColumnDefinition Width="2*"/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
                 <StackPanel Grid.Column="0" Margin="10">
                     <TextBlock Text="EMAIL" Margin="10"/>
                     <TextBlock Text="{Binding email}" Margin="20,0,0,0"/>
@@ -50,6 +54,9 @@
                         </ListBox>
                     </Grid>
                 </GroupBox>
+                <DockPanel Grid.Row="1">
+                    <Button Content="30 > AGE" Name="ageButton" Click="ageButton_Click"/>
+                </DockPanel>
             </Grid>
         </GroupBox>
     </Grid>

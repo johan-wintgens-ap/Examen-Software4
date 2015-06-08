@@ -49,6 +49,14 @@ namespace Final4
         {
             summaryGrid.DataContext = personenListBox.SelectedItem;
         }
+
+        private void ageButton_Click(object sender, RoutedEventArgs e)
+        {
+            var jongVolk = from persoon in PersonenLijst
+                           where persoon.age < 30
+                           select persoon;
+            MessageBox.Show(jongVolk.Count() + " personen zijn jonger dan 30.");
+        }
     }
 
     public class GenderToImageConverter : IValueConverter
