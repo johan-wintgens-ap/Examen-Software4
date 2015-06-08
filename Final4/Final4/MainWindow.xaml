@@ -1,11 +1,14 @@
 ﻿<Window x:Class="Final4.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:Final4="clr-namespace:Final4"
         Title="MainWindow" Height="500" Width="800" Loaded="Window_Loaded">
+    <Window.Resources>
+        <Final4:GenderToImageConverter x:Key="converter"/>
+    </Window.Resources>
     <Grid Name="FullGrid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
-            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
         <ListBox Grid.Column="0" Name="personenListBox">
             <ListBox.ItemTemplate>
@@ -17,6 +20,7 @@
                             <TextBlock Text="{Binding company}"/>
                             <TextBlock Text="{Binding age}"/>
                         </StackPanel>
+                        <Image Source="{Binding gender, Converter={StaticResource converter}}"/>
                     </DockPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>

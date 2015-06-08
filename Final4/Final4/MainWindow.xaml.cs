@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -42,6 +43,27 @@ namespace Final4
                 PersonenLijst.Add(persoon);
             }
             personenListBox.ItemsSource = PersonenLijst;
+        }
+    }
+
+    public class GenderToImageConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            string t = value as string;
+            if (t == "male")
+            {
+                return Environment.CurrentDirectory + @"/male.png";
+            }
+            else
+            {
+                return Environment.CurrentDirectory + @"/female.png";
+            }
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            return null;
         }
     }
 }
