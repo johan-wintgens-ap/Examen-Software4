@@ -1,8 +1,25 @@
 ﻿<Window x:Class="Final4.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="350" Width="525" Loaded="Window_Loaded">
-    <Grid>
-        
+        Title="MainWindow" Height="500" Width="800" Loaded="Window_Loaded">
+    <Grid Name="FullGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <ListBox Grid.Column="0" Name="personenListBox">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <DockPanel Margin="5">
+                        <Image Source="{Binding picture}" Height="50" Width="50"/>
+                        <StackPanel Margin="5">
+                            <TextBlock Text="{Binding name}" FontWeight="Bold"/>
+                            <TextBlock Text="{Binding company}"/>
+                            <TextBlock Text="{Binding age}"/>
+                        </StackPanel>
+                    </DockPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
 </Window>

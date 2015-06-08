@@ -37,6 +37,11 @@ namespace Final4
         {
             jsonData = File.ReadAllText(fileDir);
             data = JsonConvert.DeserializeObject<Rootobject>(jsonData);
+            foreach (var persoon in data.Personen)
+            {
+                PersonenLijst.Add(persoon);
+            }
+            personenListBox.ItemsSource = PersonenLijst;
         }
     }
 }
