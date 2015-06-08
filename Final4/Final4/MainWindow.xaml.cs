@@ -57,6 +57,11 @@ namespace Final4
                            select persoon;
             MessageBox.Show(jongVolk.Count() + " personen zijn jonger dan 30.");
         }
+
+        private void moreAgeButton_Click(object sender, RoutedEventArgs e)
+        {
+            PersonenLijst[personenListBox.SelectedIndex].age++;
+        }
     }
 
     public class GenderToImageConverter : IValueConverter

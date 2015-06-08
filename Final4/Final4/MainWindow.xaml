@@ -55,6 +55,7 @@
                     </Grid>
                 </GroupBox>
                 <DockPanel Grid.Row="1">
+                    <Button Content="AGE++" Name="moreAgeButton" Click="moreAgeButton_Click"/>
                     <Button Content="30 > AGE" Name="ageButton" Click="ageButton_Click"/>
                 </DockPanel>
             </Grid>
