@@ -44,6 +44,11 @@ namespace Final4
             }
             personenListBox.ItemsSource = PersonenLijst;
         }
+
+        private void personenListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            summaryGrid.DataContext = personenListBox.SelectedItem;
+        }
     }
 
     public class GenderToImageConverter : IValueConverter

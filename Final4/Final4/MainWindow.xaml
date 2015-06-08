@@ -10,7 +10,7 @@
             <ColumnDefinition/>
             <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
-        <ListBox Grid.Column="0" Name="personenListBox">
+        <ListBox Grid.Column="0" Name="personenListBox" SelectionChanged="personenListBox_SelectionChanged">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <DockPanel Margin="5">
@@ -25,5 +25,32 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+        <GroupBox Header="SUMMARY" Grid.Column="1">
+            <Grid Name="summaryGrid">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0" Margin="10">
+                    <TextBlock Text="EMAIL" Margin="10"/>
+                    <TextBlock Text="{Binding email}" Margin="20,0,0,0"/>
+                    <TextBlock Text="ADDRESS" Margin="10"/>
+                    <TextBlock Text="{Binding address}" Margin="20,0,0,0"/>
+                    <TextBlock Text="ABOUT" Margin="10"/>
+                    <TextBlock Text="{Binding about}" Margin="20,0,0,0" TextWrapping="Wrap"/>
+                </StackPanel>
+                <GroupBox Header="FRIENDS" Grid.Column="1">
+                    <Grid>
+                        <ListBox Name="FriendsListBox" ItemsSource="{Binding friends}">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding name}"/>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </Grid>
+                </GroupBox>
+            </Grid>
+        </GroupBox>
     </Grid>
 </Window>
